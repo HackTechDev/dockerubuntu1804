@@ -20,7 +20,9 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends software-properties-common curl \
     && apt-get update \
     && apt-get install -y --no-install-recommends --allow-unauthenticated \
-        mc screen vim \
+        mc screen vim sudo \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
+
+RUN useradd -m util01 && echo "util01:util01" | chpasswd && adduser util01 sudo
