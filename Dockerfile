@@ -40,3 +40,10 @@ RUN cp ~/.zshrc ~/aa
 RUN echo export TERM="xterm-256color" > ~/.zshrc
 RUN cat ~/aa >> ~/.zshrc
 RUN rm ~/aa
+
+RUN cp ~/.zshrc /home/util01/
+RUN sed -i 's/  export ZSH=\"\/root\/.oh-my-zsh\"/export ZSH=\"\/home\/util01\/.oh-my-zsh\"/' /home/util01/.zshrc
+
+
+RUN cp -R ~/.oh-my-zsh /home/util01
+RUN chown -R util01:util01 /home/util01/
