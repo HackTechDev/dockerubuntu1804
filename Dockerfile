@@ -25,7 +25,7 @@ RUN apt-get update \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
-RUN useradd -m -s /bin/zsh util01 && echo "util01:util01" | chpasswd && adduser util01 sudo
+RUN useradd -m -s /bin/zsh util01 && echo "util01:mot2passe" | chpasswd && adduser util01 sudo
 
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 RUN chsh -s /usr/bin/zsh
