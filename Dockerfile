@@ -17,9 +17,8 @@ ENV HOME=/root \
 
 # built-in packages
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends software-properties-common curl \
-    && apt-get update \
     && apt-get install -y --no-install-recommends --allow-unauthenticated \
+        software-properties-common curl \
         mc screen vim sudo wget git zsh tmux \
     && apt-get autoclean \
     && apt-get autoremove \
@@ -46,5 +45,5 @@ RUN sed -i 's/  export ZSH=\"\/root\/.oh-my-zsh\"/export ZSH=\"\/home\/util01\/.
 RUN cp -R ~/.oh-my-zsh /home/util01
 RUN chown -R util01:util01 /home/util01/
 
-RUN mkdir "/home/util01/volume01" && \
+RUN mkdir /home/util01/volume01 && \
     chown -R util01:util01 /home/util01/volume01
