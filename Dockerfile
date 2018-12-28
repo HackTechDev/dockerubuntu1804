@@ -24,8 +24,6 @@ RUN apt-get update \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
-RUN useradd -m -s /bin/zsh util01 && echo "util01:mot2passe" | chpasswd && adduser util01 sudo
-
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 RUN chsh -s /usr/bin/zsh
 RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/zsh
@@ -35,15 +33,4 @@ RUN git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/t
 RUN sed -i 's/robbyrussell/powerlevel9k\/powerlevel9k/' ~/.zshrc
 RUN sed -i 's/  git/  git zsh-syntax-highlighting zsh-autosuggestions colored-man-colored/' ~/.zshrc
 
-RUN cp ~/.zshrc ~/aa
-RUN echo export TERM="xterm-256color" > ~/.zshrc
-RUN cat ~/aa >> ~/.zshrc
-RUN rm ~/aa
-
-RUN cp ~/.zshrc /home/util01/
-RUN sed -i 's/  export ZSH=\"\/root\/.oh-my-zsh\"/export ZSH=\"\/home\/util01\/.oh-my-zsh\"/' /home/util01/.zshrc
-RUN cp -R ~/.oh-my-zsh /home/util01
-RUN chown -R util01:util01 /home/util01/
-
-RUN mkdir /home/util01/volume01 && \
-    chown -R util01:util01 /home/util01/volume01
+RUN cp ~/.zshrc ~/aa && echo export TERM="xterm-256color" > ~/.zshrc && cat ~/aa >> ~/.zshrc && rm ~/aa
