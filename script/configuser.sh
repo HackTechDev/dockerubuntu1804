@@ -1,6 +1,6 @@
 #!/bin/sh
 
-USER=util01
+USER=$1
 
 echo "User setup"
 
@@ -9,7 +9,7 @@ echo "$USER:mot2passe" | chpasswd
 adduser $USER sudo
 
 cp ~/.zshrc /home/voluser/$USER/
-sed -i 's/  export ZSH=\"\/root\/.oh-my-zsh\"/export ZSH=\"\/home\/voluser\/$USER\/.oh-my-zsh\"/' /home/voluser/$USER/.zshrc
+sed -i 's/  export ZSH=\"\/root\/.oh-my-zsh\"/export ZSH=\"\/home\/voluser\/'$USER'\/.oh-my-zsh\"/' /home/voluser/$USER/.zshrc
 cp -R ~/.oh-my-zsh /home/voluser/$USER
-
-
+chown -R $USER:$USER /home/voluser/$USER/.oh-my-zsh
+chown -R $USER:$USER /home/voluser/$USER/.zshrc
