@@ -33,6 +33,6 @@ RUN git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/t
 RUN sed -i 's/robbyrussell/powerlevel9k\/powerlevel9k/' ~/.zshrc
 RUN sed -i 's/  git/  git zsh-syntax-highlighting zsh-autosuggestions colored-man-colored/' ~/.zshrc
 
-RUN cp ~/.zshrc ~/aa && echo export TERM="xterm-256color" > ~/.zshrc && cat ~/aa >> ~/.zshrc && rm ~/aa
-
-VOLUME /etc
+RUN cp ~/.zshrc ~/aa && \
+    echo export TERM="xterm-256color" > ~/.zshrc && \
+    cat ~/aa >> ~/.zshrc && rm ~/aa
