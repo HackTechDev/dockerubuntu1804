@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t nekrofage/ubuntu1804test:latest .
+docker build -t nekrofage/debian96test:latest .

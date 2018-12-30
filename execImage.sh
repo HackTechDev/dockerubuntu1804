@@ -5,5 +5,5 @@ docker run --hostname local \
     -v voluser:/home/voluser \
     -v "$(pwd)"/script:/script \
     -v "$(pwd)"/system:/system \
-    -ti nekrofage/ubuntu1804test:latest \
+    -ti nekrofage/debian96test:latest \
     /bin/zsh -c "cp /system/etc/passwd /etc/; cp /system/etc/shadow /etc/; /bin/zsh"

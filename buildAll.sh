@@ -1,4 +1,4 @@
 #!/bin/sh
 
-./createVolumeUser.sh
+./buildVolumeUser.sh
 ./buildImage.sh

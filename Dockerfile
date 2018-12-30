@@ -1,10 +1,5 @@
-ARG image=ubuntu:18.04
+ARG image=debian:9.6
 FROM $image as system
-
-
-ARG localbuild
-RUN echo "LOCALBUILD=$localbuild"
-RUN if [ "x$localbuild" != "x" ]; then sed -i 's#http://archive.ubuntu.com/#http://fr.archive.ubuntu.com/#' /etc/apt/sources.list; fi
 
 ENV HOME=/root \
       APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn \
